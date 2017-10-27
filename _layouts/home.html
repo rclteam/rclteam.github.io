@@ -10,43 +10,55 @@
   <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}"> {% seo %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script>
+
     $(document).ready(function () {
-      function filterPath(string) {
-        return string
-          .replace(/^\//, '')
-          .replace(/(index|default).[a-zA-Z]{3,4}$/, '')
-          .replace(/\/$/, '');
-      }
+      var $root = $('html, body');
 
-      var locationPath = filterPath(location.pathname);
-      $('a[href*="#"]').each(function () {
-
-        var thisPath = filterPath(this.pathname) || locationPath;
-        var hash = this.hash;
-
-        if ($("a[name = " + hash.replace(/#/, '') + "]").length) {
-          if (locationPath == thisPath && (location.hostname == this.hostname || !this.hostname) && this.hash.replace(/#/, '')) {
-            var $target = $("a[name = " + hash.replace(/#/, '') + "]"), target = this.hash;
-            if (target) {
-              $(this).click(function (event) {
-
-                event.preventDefault();
-                $('html, body').animate({ scrollTop: $target.offset().top }, 1000, function () {
-                  location.hash = target;
-                  $target.focus();
-                  if ($target.is(":focus")) { //checking if the target was focused
-                    return false;
-                  } else {
-                    $target.attr('tabindex', '-1'); //Adding tabindex for elements not focusable
-                    $target.focus(); //Setting focus
-                  };
-                });
-              });
-            }
-          }
-        }
+      $('a[href^="#"]').click(function () {
+        var href = $.attr(this, 'href');
+        $root.animate({
+          scrollTop: $(href).offset().top - 215
+        }, 500);
       });
     });
+
+    // $(document).ready(function () {
+    //   function filterPath(string) {
+    //     return string
+    //       .replace(/^\//, '')
+    //       .replace(/(index|default).[a-zA-Z]{3,4}$/, '')
+    //       .replace(/\/$/, '');
+    //   }
+
+    //   var locationPath = filterPath(location.pathname);
+    //   $('a[href*="#"]').each(function () {
+
+    //     var thisPath = filterPath(this.pathname) || locationPath;
+    //     var hash = this.hash;
+
+    //     if ($("a[name = " + hash.replace(/#/, '') + "]").length) {
+    //       if (locationPath == thisPath && (location.hostname == this.hostname || !this.hostname) && this.hash.replace(/#/, '')) {
+    //         var $target = $("a[name = " + hash.replace(/#/, '') + "]"), target = this.hash;
+    //         if (target) {
+    //           $(this).click(function (event) {
+
+    //             event.preventDefault();
+    //             $('html, body').animate({ scrollTop: $target.offset().top - 215 }, 500, function () {
+    //               location.hash = target;
+    //               $target.focus();
+    //               if ($target.is(":focus")) { //checking if the target was focused
+    //                 return false;
+    //               } else {
+    //                 $target.attr('tabindex', '-1'); //Adding tabindex for elements not focusable
+    //                 $target.focus(); //Setting focus
+    //               };
+    //             });
+    //           });
+    //         }
+    //       }
+    //     }
+    //   });
+    // });
 
     function init() {
       window.addEventListener('scroll', function (e) {
@@ -92,14 +104,14 @@
     </section>
     <section class="inner">
       <h2>Projects</h2>
-      <a name="Projects"></a>
+      <a name="Projects" id="Projects"></a>
 
       Here we should reference our project links.
     </section>
 
     <section class="inner">
       <h2>Blog</h2>
-      <a name="Blog"></a>
+      <a name="Blog" id="Blog"></a>
 
       {% for post in site.posts %}
       <li>
@@ -110,14 +122,14 @@
 
     <section class="inner">
       <h2>Publications</h2>
-      <a name="Publications"></a>
+      <a name="Publications" id="Publications"></a>
 
       Here we could have a Bibtex file and associated pdf.
     </section>
 
     <section class="inner">
       <h2>Get in Touch</h2>
-      <a name="GetinTouch"></a>
+      <a name="GetinTouch" id="GetinTouch"></a>
 
       Provide link to SBRI web site, facebook, add team contact mail, tel, and a form to send email.
       <div>
@@ -130,25 +142,11 @@
   <!-- FOOTER  -->
   <div id="footer_wrap" class="outer">
     <footer class="inner">
-      {% if site.github.is_project_page %}
       <p class="copyright">{{ site.title | default: site.github.repository_name }} maintained by
         <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
       </p>
-      {% endif %}
     </footer>
   </div>
-
-  {% if site.google_analytics %}
-  <script type="text/javascript">
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date(); a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-    ga('create', '{{ site.google_analytics }}', 'auto');
-    ga('send', 'pageview');
-  </script> {% endif %}
 </body>
 
 </html>
