@@ -11,7 +11,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script>
     $(document).ready(function () {
-
       function filterPath(string) {
         return string
           .replace(/^\//, '')
@@ -48,6 +47,26 @@
         }
       });
     });
+
+    function init() {
+      window.addEventListener('scroll', function (e) {
+        var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+          shrinkOn = 5,
+          header = document.querySelector("#header_wrap");
+        content = document.querySelector("#main_content_wrap");
+        if (distanceY > shrinkOn) {
+          header.classList.add("smaller");
+          content.classList.add("smaller");
+        } else {
+          if (header.classList.contains("smaller")) {
+            header.classList.remove("smaller");
+            content.classList.remove("smaller");
+          }
+        }
+      });
+    }
+    window.onload = init();
+
   </script>
 </head>
 
@@ -57,31 +76,49 @@
   <div id="header_wrap" class="outer">
     <header class="inner">
       <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
-
+      <nav class="menu">
+        <a href="#Projects">Projects</a>
+        <a href="#Blog">Blog</a>
+        <a href="#Publications">Publications</a>
+        <a href="#GetinTouch">Get in Touch</a>
+      </nav>
     </header>
   </div>
   <!-- MAIN CONTENT -->
   <div id="main_content_wrap" class="outer">
     <section id="main_content" class="inner">
       <em>{{ site.description | default: site.github.project_tagline }}</em>
-      <a href="#Projects">csc</a>
+
     </section>
     <section class="inner">
       <h2>Projects</h2>
+      <a name="Projects"></a>
 
       Here we should reference our project links.
     </section>
+
     <section class="inner">
       <h2>Blog</h2>
-      Here we should show 5 recent posts, maybe from facebook also.
+      <a name="Blog"></a>
 
+      {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+      {% endfor %} Here we should show 5 recent posts, maybe from facebook also.
     </section>
+
     <section class="inner">
       <h2>Publications</h2>
+      <a name="Publications"></a>
+
       Here we could have a Bibtex file and associated pdf.
     </section>
+
     <section class="inner">
       <h2>Get in Touch</h2>
+      <a name="GetinTouch"></a>
+
       Provide link to SBRI web site, facebook, add team contact mail, tel, and a form to send email.
       <div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5568.233443200298!2d4.899991811410752!3d45.748805899275794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4c1bb1ff9ffab%3A0x394971f74cff5be5!2s18+Avenue+du+Doyen+Jean+L%C3%A9pine%2C+69500+Bron!5e0!3m2!1sfr!2sfr!4v1508515021873"
@@ -93,7 +130,6 @@
   <!-- FOOTER  -->
   <div id="footer_wrap" class="outer">
     <footer class="inner">
-      <a name="Projects"></a>
       {% if site.github.is_project_page %}
       <p class="copyright">{{ site.title | default: site.github.repository_name }} maintained by
         <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
