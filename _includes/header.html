@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: " en-US " }}">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <meta name="description" content="{{ site.title | default: site.github.repository_name }} : {{ site.description | default: site.github.project_tagline }}">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}"> {% seo %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            var $root = $('html, body');
+
+            $('a[href^="#"]').click(function () {
+                var href = $.attr(this, 'href');
+                $root.animate({
+                    scrollTop: $(href).offset().top - 110
+                }, 500);
+            });
+        });
+
+        {% if include.fromIndex == true %}
+        function init() {
+            window.addEventListener('scroll', function (e) {
+                var distanceY = window.pageYOffset || document.documentElement.scrollTop
+                var shrinkOn = 5;
+                var header = document.querySelector("#header_wrap");
+                var content = document.querySelector("#main_content_wrap");
+                if (distanceY > shrinkOn) {
+                    header.classList.add("smaller");
+                    content.classList.add("smaller");
+                } else {
+                    if (header.classList.contains("smaller")) {
+                        header.classList.remove("smaller");
+                        content.classList.remove("smaller");
+                    }
+                }
+            });
+        }
+        window.onload = init();
+        {% endif %}
+    </script>
+</head>
+
+<body>
+    <a name="title" id="title"></a>
+
+    <!-- HEADER -->
+    {% if include.fromIndex == true %}
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <a id="project_title_link" href="#title">
+                <h1 id="project_title">{{ site.title}}</h1>
+            </a>
+            <nav class="menu">
+                <a href="#projects">Projects</a>
+                <a href="#blog">Blog</a>
+                <a href="#publications">Publications</a>
+                <a href="#contact">Get in Touch</a>
+            </nav>
+        </header>
+    </div>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+            <em>{{ site.description }}</em>
+
+            {% else %}
+            <div id="header_wrap" class="outer smaller">
+                <header class="inner">
+                    <a id="project_title_link" href={{ "/" | absolute_url }}>
+                        <h1 id="project_title">{{ site.title}}</h1>
+                    </a>
+                    <nav class="menu">
+                        <a href={{ "/#projects" | absolute_url }}>Projects</a>
+                        <a href={{ "/#blog" | absolute_url }}>Blog</a>
+                        <a href={{ "/#publications" | absolute_url }}>Publications</a>
+                        <a href={{ "/#contact" | absolute_url }}>Get in Touch</a>
+                    </nav>
+                </header>
+            </div>
+            <!-- MAIN CONTENT -->
+            <div id="main_content_wrap" class="outer smaller">
+                <section id="main_content" class="inner">
+                    <em>{{ site.description }}</em>
+                    {% endif %}

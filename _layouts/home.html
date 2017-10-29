@@ -1,152 +1,25 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang | default: " en-US " }}">
+{%include header.html fromIndex=true %}
+<section class="inner">
+  <a name="projects" id="projects"></a>
+  <h2>Projects</h2>
+  {%include projects-timeline.html %}
+</section>
 
-<head>
-  <meta charset='utf-8'>
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <meta name="viewport" content="width=device-width,maximum-scale=2">
-  <meta name="description" content="{{ site.title | default: site.github.repository_name }} : {{ site.description | default: site.github.project_tagline }}">
+<section class="inner">
+  <a name="blog" id="blog"></a>
+  <h2>Blog</h2>
+  {%include top-post.html %}
+</section>
 
-  <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}"> {% seo %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script>
+<section class="inner">
+  <a name="publications" id="publications"></a>
+  <h2>Publications</h2>
+  {%include all-publi.html %}
+</section>
 
-    $(document).ready(function () {
-      var $root = $('html, body');
-
-      $('a[href^="#"]').click(function () {
-        var href = $.attr(this, 'href');
-        $root.animate({
-          scrollTop: $(href).offset().top - 215
-        }, 500);
-      });
-    });
-
-    // $(document).ready(function () {
-    //   function filterPath(string) {
-    //     return string
-    //       .replace(/^\//, '')
-    //       .replace(/(index|default).[a-zA-Z]{3,4}$/, '')
-    //       .replace(/\/$/, '');
-    //   }
-
-    //   var locationPath = filterPath(location.pathname);
-    //   $('a[href*="#"]').each(function () {
-
-    //     var thisPath = filterPath(this.pathname) || locationPath;
-    //     var hash = this.hash;
-
-    //     if ($("a[name = " + hash.replace(/#/, '') + "]").length) {
-    //       if (locationPath == thisPath && (location.hostname == this.hostname || !this.hostname) && this.hash.replace(/#/, '')) {
-    //         var $target = $("a[name = " + hash.replace(/#/, '') + "]"), target = this.hash;
-    //         if (target) {
-    //           $(this).click(function (event) {
-
-    //             event.preventDefault();
-    //             $('html, body').animate({ scrollTop: $target.offset().top - 215 }, 500, function () {
-    //               location.hash = target;
-    //               $target.focus();
-    //               if ($target.is(":focus")) { //checking if the target was focused
-    //                 return false;
-    //               } else {
-    //                 $target.attr('tabindex', '-1'); //Adding tabindex for elements not focusable
-    //                 $target.focus(); //Setting focus
-    //               };
-    //             });
-    //           });
-    //         }
-    //       }
-    //     }
-    //   });
-    // });
-
-    function init() {
-      window.addEventListener('scroll', function (e) {
-        var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-          shrinkOn = 5,
-          header = document.querySelector("#header_wrap");
-        content = document.querySelector("#main_content_wrap");
-        if (distanceY > shrinkOn) {
-          header.classList.add("smaller");
-          content.classList.add("smaller");
-        } else {
-          if (header.classList.contains("smaller")) {
-            header.classList.remove("smaller");
-            content.classList.remove("smaller");
-          }
-        }
-      });
-    }
-    window.onload = init();
-
-  </script>
-</head>
-
-<body>
-
-  <!-- HEADER -->
-  <div id="header_wrap" class="outer">
-    <header class="inner">
-      <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
-      <nav class="menu">
-        <a href="#Projects">Projects</a>
-        <a href="#Blog">Blog</a>
-        <a href="#Publications">Publications</a>
-        <a href="#GetinTouch">Get in Touch</a>
-      </nav>
-    </header>
-  </div>
-  <!-- MAIN CONTENT -->
-  <div id="main_content_wrap" class="outer">
-    <section id="main_content" class="inner">
-      <em>{{ site.description | default: site.github.project_tagline }}</em>
-
-    </section>
-    <section class="inner">
-      <h2>Projects</h2>
-      <a name="Projects" id="Projects"></a>
-
-      Here we should reference our project links.
-    </section>
-
-    <section class="inner">
-      <h2>Blog</h2>
-      <a name="Blog" id="Blog"></a>
-
-      {% for post in site.posts %}
-      <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-      </li>
-      {% endfor %} Here we should show 5 recent posts, maybe from facebook also.
-    </section>
-
-    <section class="inner">
-      <h2>Publications</h2>
-      <a name="Publications" id="Publications"></a>
-
-      Here we could have a Bibtex file and associated pdf.
-    </section>
-
-    <section class="inner">
-      <h2>Get in Touch</h2>
-      <a name="GetinTouch" id="GetinTouch"></a>
-
-      Provide link to SBRI web site, facebook, add team contact mail, tel, and a form to send email.
-      <div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5568.233443200298!2d4.899991811410752!3d45.748805899275794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4c1bb1ff9ffab%3A0x394971f74cff5be5!2s18+Avenue+du+Doyen+Jean+L%C3%A9pine%2C+69500+Bron!5e0!3m2!1sfr!2sfr!4v1508515021873"
-          width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-      </div>
-    </section>
-  </div>
-
-  <!-- FOOTER  -->
-  <div id="footer_wrap" class="outer">
-    <footer class="inner">
-      <p class="copyright">{{ site.title | default: site.github.repository_name }} maintained by
-        <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
-      </p>
-    </footer>
-  </div>
-</body>
-
-</html>
+<section class="inner">
+  <a name="contact" id="contact"></a>
+  <h2>Get in Touch</h2>
+  {%include contacts.html %}
+</section>
+{%include footer.html %}
