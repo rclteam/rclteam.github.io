@@ -26,16 +26,14 @@
         function init() {
             window.addEventListener('scroll', function (e) {
                 var distanceY = window.pageYOffset || document.documentElement.scrollTop
-                var shrinkOn = 5;
+                var shrinkOn = 1;
                 var header = document.querySelector("#header_wrap");
                 var content = document.querySelector("#main_content_wrap");
                 if (distanceY > shrinkOn) {
                     header.classList.add("smaller");
-                    content.classList.add("smaller");
                 } else {
                     if (header.classList.contains("smaller")) {
                         header.classList.remove("smaller");
-                        content.classList.remove("smaller");
                     }
                 }
             });
