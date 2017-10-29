@@ -305,7 +305,7 @@ Full-Width Styles
 }
 
 #header_wrap.smaller .menu {
-  padding-top: 1px;
+  padding-top: 0px;
 }
 
 #header_wrap nav a{
@@ -386,6 +386,11 @@ Full-Width Styles
 #main_content_wrap {
   position: relative;
   top: 200px;
+  -webkit-transition: top 0.3s;
+  -moz-transition: top 0.3s;
+  -ms-transition: top 0.3s;
+  -o-transition: top 0.3s;
+  transition: top 0.3s;
   background: #f2f2f2;
   border-top: 1px solid #111;
   border-bottom: 1px solid #111;
@@ -407,7 +412,17 @@ Full-Width Styles
   background: #212121;
 }
 
+.anchor{
+  display: block;
+  margin-top: -200px;   
+  height: 200px; 
+  visibility: hidden;
+}
 
+.anchor.smaller{
+  margin-top: -100px;   
+  height: 100px; 
+}
 
 /*******************************************************************************
 Small Device Styles
@@ -434,7 +449,7 @@ Small Device Styles
   }
 
   #project_title {
-  font-size: 32px;
+  font-size: 28px;
   }
 
   h1 {
@@ -466,7 +481,25 @@ Small Device Styles
   }
 
   #header_wrap nav a{
-    font-size: 14px;
+    font-size: 12px;
+  }
+
+  #main_content_wrap {
+    top: 150px;
+  }
+  
+  #main_content_wrap.smaller {
+    top: 75px;
+  }
+  
+  .anchor{
+    margin-top: -150px; 
+    height: 150px; 
+  }
+
+  .anchor.smaller{
+    margin-top: -75px;   
+    height: 75px; 
   }
 }
 
@@ -485,7 +518,7 @@ Small Device Styles
   }
 
   #project_title {
-  font-size: 28px;
+  font-size: 24px;
   }
 
   h1 {
@@ -519,6 +552,24 @@ Small Device Styles
   }
 
   #header_wrap nav a{
-    font-size: 12px;
+    font-size: 10px;
+  }
+
+  #main_content_wrap {
+    top: 120px;
+  }
+  
+  #main_content_wrap.smaller {
+    top: 60px;
+  }
+  
+  .anchor{
+    margin-top: -120px; 
+    height: 120px; 
+  }
+
+  .anchor.smaller{
+    margin-top: -60px;   
+    height: 60px; 
   }
 }

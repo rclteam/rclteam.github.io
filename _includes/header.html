@@ -10,14 +10,12 @@
     <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}"> {% seo %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script>
-
         $(document).ready(function () {
             var $root = $('html, body');
-
             $('a[href^="#"]').click(function () {
                 var href = $.attr(this, 'href');
                 $root.animate({
-                    scrollTop: $(href).offset().top - 110
+                    scrollTop: $(href).offset().top
                 }, 500);
             });
         });
@@ -29,11 +27,25 @@
                 var shrinkOn = 1;
                 var header = document.querySelector("#header_wrap");
                 var content = document.querySelector("#main_content_wrap");
+                var projects = document.querySelector("#projects");
+                var blog = document.querySelector("#blog");
+                var publications = document.querySelector("#publications");
+                var contact = document.querySelector("#contact");
                 if (distanceY > shrinkOn) {
                     header.classList.add("smaller");
+                    content.classList.add("smaller");
+                    projects.classList.add("smaller");
+                    blog.classList.add("smaller");
+                    publications.classList.add("smaller");
+                    contact.classList.add("smaller");
                 } else {
                     if (header.classList.contains("smaller")) {
                         header.classList.remove("smaller");
+                        content.classList.remove("smaller");
+                        projects.classList.remove("smaller");
+                        blog.classList.remove("smaller");
+                        publications.classList.remove("smaller");
+                        contact.classList.remove("smaller");
                     }
                 }
             });
@@ -64,6 +76,7 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
         <section id="main_content" class="inner">
+            <br/>
             <em>{{ site.description }}</em>
 
             {% else %}
