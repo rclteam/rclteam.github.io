@@ -1,1 +1,6 @@
-Here we should reference our project links.
+{% for project in site.projects %}
+<li>
+    <a href="{{ project.url }}">{{ project.title }}</a>
+    <br\>{{ project.description }}
+</li>
+{% endfor %}Here we should reference our project links.
