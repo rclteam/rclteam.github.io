@@ -1,0 +1,21 @@
+# Site navigation links
+
+- title: Projects
+  url: /projects/
+  excerpt:
+  image:
+
+- title: Blog
+  url: /blog/
+  excerpt:
+  image:
+
+- title: Publications
+  url: /publications/
+  excerpt:
+  image:
+
+- title: Get In Touch
+  url: /get-in-touch/
+  excerpt:
+  image:

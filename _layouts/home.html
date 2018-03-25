@@ -1,25 +1,35 @@
-{%include header.html fromIndex=true %}
-<span class="anchor" id="projects"></span>
-<section class="inner">
-  <h2>Projects</h2>
-  {%include projects-timeline.html %}
-</section>
+---
+layout: default
+---
 
-<span class="anchor" id="blog"></span>
-<section class="inner" id="blog">
-  <h2>Blog</h2>
-  {%include top-post.html %}
-</section>
-
-<span class="anchor" id="publications"></span>
-<section class="inner">
-  <h2>Publications</h2>
-  {%include all-publi.html %}
-</section>
-
-<span class="anchor" id="contact"></span>
-<section class="inner">
-  <h2>Get in Touch</h2>
-  {%include contacts.html %}
-</section>
-{%include footer.html %}
+<div class="home-feature">
+	<div class="home-image">
+		<img src="{{ site.url }}/images/human.jpg" class="home-image-left" alt="Human" itemprop="image">
+		<p>"From Human<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to Robot"</p>
+		<img src="{{ site.url }}/images/robot.jpg" class="home-image-right" alt="robot" itemprop="image">
+	</div><!-- /.page-image -->
+</div><!-- /.page-feature -->
+<div id="main" role="main">
+	<article class="wrap" itemscope itemtype="http://schema.org/Article">
+		{% include breadcrumbs.html %}
+		<div class="page-title">
+			<h1>{{ page.title }}</h1>
+		</div>
+		<div class="inner-wrap">
+			<div id="content" class="page-content" itemprop="articleBody">
+				{{ site.description }}
+				<hr />
+				<footer class="page-footer">
+					{% if page.categories %}{% include page-author.html %}{% endif %}
+					{% if page.share != false %}{% include share-this.html %}{% endif %}
+					{% include page-meta.html %}
+				</footer><!-- /.footer -->
+				<aside>
+					{% if page.comments == true %}{% include comments.html %}{% endif %}
+				</aside>
+			</div><!-- /.content -->
+		</div><!-- /.inner-wrap -->
+		{% if page.ads == true %}<div class="ads">{% include advertising.html %}</div><!-- /.ads -->{% endif %}
+	</article><!-- ./wrap -->
+</div><!-- /#main -->

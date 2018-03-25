@@ -1,0 +1,13 @@
+# Footer navigation links
+
+- title: Projects
+  url: /projects/
+
+- title: Blog
+  url: /blog/
+
+- title: Publications
+  url: /publications/
+
+- title: Get In Touch
+  url: /get-in-touch/
