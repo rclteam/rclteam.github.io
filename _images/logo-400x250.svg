@@ -25,7 +25,6 @@
   <defs
      id="defs2">
     <linearGradient
-       inkscape:collect="always"
        id="linearGradient909"
        osb:paint="gradient">
       <stop
@@ -42,7 +41,7 @@
        xlink:href="#linearGradient909"
        id="radialGradient919"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(5.4489725,-0.00912119,0.00206174,1.2316842,-235.49374,-7.2618088)"
+       gradientTransform="matrix(5.4489725,-0.00912119,0.00206174,1.2316842,-235.49374,-7.6157415)"
        cx="52.916672"
        cy="33.426849"
        fx="52.916672"
@@ -219,11 +218,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.9440894"
-     inkscape:cx="170.901"
-     inkscape:cy="127.31362"
+     inkscape:zoom="2.9502794"
+     inkscape:cx="63.368811"
+     inkscape:cy="123.07673"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer6"
+     inkscape:current-layer="layer3"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1007"
@@ -269,7 +268,7 @@
        width="105.83334"
        height="66.145836"
        x="0"
-       y="0.35393012" />
+       y="-2.5431316e-06" />
   </g>
   <g
      style="display:inline;opacity:0.98999999"

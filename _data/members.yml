@@ -4,10 +4,12 @@
   firstName: Peter Ford
   lastName: Dominey
   email: peter.dominey@inserm.fr
-  stillWithUs: true
+  position: Team Leader
+  current: true
 
 - cde:
   firstName: Clément
   lastName: Delgrange
+  position: Phd
   email: clement.delgrange@inserm.fr
-  stillWithUs: true
+  current: true

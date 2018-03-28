@@ -1,0 +1,30 @@
+<!--{% for project in site.projects %}
+<li>
+    <a href="{{ project.url }}">{{ project.title }}</a>
+    <br\>{{ project.description }}
+</li>
+{% endfor %}Here we should reference our project links.
+-->
+<section class="timeline">
+    <div class="container">
+     {% assign skip = false %}
+     {% for project in site.projects reversed %}
+     {% if project.closed != true %}
+      <div class="timeline-item">
+        <div class="timeline-img"></div>
+        {% assign p = forloop.index | modulo: 2 %}
+        {% if p == 1 and skip == false %}<div class="timeline-content js--fadeInLeft">{% elsif p == 0 and skip == true %}<div class="timeline-content js--fadeInLeft">{% else %}<div class="timeline-content js--fadeInRight">{% endif %}
+          <h2>{{ project.title }}</h2>
+          <div class="date">{{ project.date | date: "%B %Y" }}</div>
+          <p>{{ project.excerpt | strip_html | truncate: 160 }}</p>
+          <a class="bnt-more" href="{{ site.url }}{{ project.url }}">More</a>
+        </div>
+      </div> 
+      {% else %}
+      {% if skip == true %}{% assign skip = false %}{% else %}{% assign skip = true %}{% endif %}
+      {% endif %}
+    {% endfor %} 
+  
+  
+    </div>
+  </section>

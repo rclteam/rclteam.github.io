@@ -1,6 +1,7 @@
 ---
 title: Project 1
 description: This is a greate projet about Jarvis
+closed: true
 ---
 
 # {{page.title}}

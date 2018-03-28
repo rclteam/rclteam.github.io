@@ -1,8 +1,8 @@
 ---
-title: Project 1
-description: This is a greate projet about Jarvis
+title: Charles
+date: 2015-03-01
 ---
 
-# {{page.title}}
-
-This an example project, just to show that it works.
+*Charles* is a virtual agent that can cooperativelly learn natural language orders and their executable semantics
+by interacting with a user on a digital environment. The environment can be either web based applications or 
+structured *API* calls.  

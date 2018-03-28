@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <div id="main" role="main">
 	<article class="wrap" itemscope itemtype="http://schema.org/Article">
 		{% if page.image.feature %}
@@ -18,8 +17,11 @@ layout: default
 		</div>
 		<div class="inner-wrap">
 			<div id="content" class="page-content" itemprop="articleBody">
+				{% include projects-timeline.html %}
+				<br/>
+				
 				{{ content }}
-				<hr />
+				
 				<footer class="page-footer">
 					{% if page.share != false %}{% include share-this.html %}{% endif %}
 					{% include page-meta.html %}
@@ -32,3 +34,7 @@ layout: default
 		{% if page.ads == true %}<div class="ads">{% include advertising.html %}</div><!-- /.ads -->{% endif %}
 	</article><!-- /.wrap -->
 </div><!-- /#main -->
+<script src="{{ site.url }}/js/vendor/jquery-1.9.1.min.js"></script>
+<script src="{{ site.url }}/js/main.js"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script src="{{ site.url }}/js/timeline.js"></script>
