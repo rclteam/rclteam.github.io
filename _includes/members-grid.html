@@ -1,0 +1,7 @@
+<article class="tile">
+  {% if member.avatar %}<img src="{{ site.url }}/images/{{ member.avatar }}" alt="avatar">
+    {% else %}<img src="{{ site.url }}/images/{{ site.owner.avatar }}" alt="avatar">{% endif %}
+  <h2 class="post-title">{{ member.name }}</h2>
+  <p class="post-excerpt">{{ member.position }}</p>
+  <p class="post-excerpt">{{ member.email }}</p>
+</article><!-- /.tile -->

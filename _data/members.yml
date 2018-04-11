@@ -1,15 +1,14 @@
 # Team Members
 
 - pfd:
-  firstName: Peter Ford
-  lastName: Dominey
+  name: Peter Ford Dominey
   email: peter.dominey@inserm.fr
   position: Team Leader
+  avatar: pfd.jpg
   current: true
 
 - cde:
-  firstName: Clément
-  lastName: Delgrange
+  name: Clément Delgrange
   position: Phd
   email: clement.delgrange@inserm.fr
   current: true
